@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Database\Schema\IndexDefinition;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Registercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Indexcontroller::class, 'index']);
+
+Route::get('/personalcab', [Indexcontroller::class, 'personalcab']);
+
+Route::get('/signout', [Indexcontroller::class, 'signout']);
+
+Route::get('registration', [Registercontroller::class,'registration_view']);
+
+Route::post('register_valid', [Registercontroller::class,'register_valid']);
+Route::post('auth_valid', [IndexController::class,'auth_valid']);
