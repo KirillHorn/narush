@@ -15,10 +15,10 @@ class Registercontroller extends Controller
     public function register_valid(Request $request) {
         $request->validate([
  "name" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
- "surname" => "alpha_dash|required|",
- "patronymic" => "alpha_dash|required",
+ "surname" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
+ "patronymic" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
  "email" => "required|unique:users|email",
- "login" =>"required|unique:users|login",
+ "login" =>"required|unique:users",
  "phone" => "required|numeric",
  "password" => "required|min:6",
         ], [
@@ -30,8 +30,10 @@ class Registercontroller extends Controller
             "name.regex" => "Только кириллица",
             "surname.required" => "Поле обязательно для заполнения!",
             "surname.alpha_dash" => "Фамилия должно состоять только из букв!",
+            "surname.regex" => "Только кириллица",
             "patronymic.required" => "Поле обязательно для заполнения!",
             "patronymic.alpha_dash" => "Отчество должно состоять только из букв!",
+            "patronymic.regex" => "Только кириллица",
             "login.required" => "Поле обязательно для заполнения!",
             "phone.required" => "Поле обязательно для заполнения!",
             "phone.numeric" => "Номер только из цифр!",

@@ -35,9 +35,14 @@ class IndexController extends Controller
            "password" => $user_auth['password']
         ])
      ) {
+      if (Auth::user()->id_role == 1) {
         return redirect("/personalcab")->with("auth", "Вы вошли!");
      } else {
-        return redirect()->back()->with("error", "Ошибка авторизации! Проверьте логин или пароль!");
+        return redirect("/admin/index")->with("auth", "Вы вошли!");
+
+     } 
+     } else {
+      return redirect()->back()->with("error", "Ошибка авторизации! Проверьте логин или пароль!");
      }
     }
     public function signout()

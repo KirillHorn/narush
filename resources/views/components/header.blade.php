@@ -17,11 +17,8 @@
     </div>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-      <li><a href="#" class="nav-link px-2">Features</a></li>
-      <li><a href="#" class="nav-link px-2">Pricing</a></li>
-      <li><a href="#" class="nav-link px-2">FAQs</a></li>
-      <li><a href="#" class="nav-link px-2">About</a></li>
+      <li><a href="#" class="nav-link px-2 link-secondary">Подать заявку</a></li>
+      <li><a href="#" class="nav-link px-2">Мои заявки</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
@@ -30,9 +27,15 @@
       <a href="/registration" class="btn btn-primary">Регистрация</a>
       @endguest
       @auth
+      @if (Auth::user()->id_role == 1)
       <a href="/personalcab" class="btn btn-primary">Личный кабинет</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
+      @else
+      <a href="/personalcab" class="btn btn-primary">Админ панель</a>
+      <a href="/signout" class="btn btn-primary">Выход</a>
       @endif
+      
+      @endauth
     </div>
   </header>
     </div>
