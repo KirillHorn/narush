@@ -15,19 +15,21 @@
         <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
       </a>
     </div>
-
+    @auth
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-secondary">Подать заявку</a></li>
+      <li><a href="/application" class="nav-link px-2 link-secondary">Подать заявку</a></li>
       <li><a href="#" class="nav-link px-2">Мои заявки</a></li>
     </ul>
+    @endauth
 
-    <div class="col-md-3 text-end">
+    <div class="col-md-3 text-end flex">
         @guest
       <button type="button" class="btn btn-outline-primary me-2">Вход</button>
       <a href="/registration" class="btn btn-primary">Регистрация</a>
       @endguest
       @auth
-      @if (Auth::user()->id_role == 1)
+      @if (Auth::user()->role == 1)
+ 
       <a href="/personalcab" class="btn btn-primary">Личный кабинет</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
       @else

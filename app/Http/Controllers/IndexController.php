@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Applications;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+
 
 class IndexController extends Controller
 {
@@ -13,7 +15,9 @@ class IndexController extends Controller
         return view("index");
     }
     public function personalcab() {
-        return view("personalcab");
+      $id=Auth::user()->id;
+      $application=Applications::where('id_user', $id)->get();
+        return view("personalcab", ['application' => $application]);
     }
 
     public function auth_valid(Request $request)
@@ -35,7 +39,7 @@ class IndexController extends Controller
            "password" => $user_auth['password']
         ])
      ) {
-      if (Auth::user()->id_role == 1) {
+      if (Auth::user()->role == 1) {
         return redirect("/personalcab")->with("auth", "Вы вошли!");
      } else {
         return redirect("/admin/index")->with("auth", "Вы вошли!");

@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\IndexDefinition;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Registercontroller;
+use App\Http\Controllers\applicationController;
 use App\Http\Controllers\AdminController    ;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,13 @@ Route::get('registration', [Registercontroller::class,'registration_view']);
 
 Route::post('register_valid', [Registercontroller::class,'register_valid']);
 Route::post('auth_valid', [IndexController::class,'auth_valid']);
+
+Route::get('/application', [applicationController::class, 'application_view']);
+
+Route::get('/{id}/accepted', [applicationController::class, 'accepted']);
+
+Route::get('/{id}/reject', [applicationController::class, 'reject']);
+
+Route::post('/{id}/apllication_create', [applicationController::class,'apllication_create']);
 
 Route::get('/admin/index', [AdminController::class,'index']);
