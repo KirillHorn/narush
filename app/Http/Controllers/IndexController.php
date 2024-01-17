@@ -37,7 +37,7 @@ class IndexController extends Controller
      ) {
         return redirect("/personalcab")->with("auth", "Вы вошли!");
      } else {
-        return redirect("/")->back()->with("error", "Ошибка авторизации!");
+        return redirect()->back()->with("error", "Ошибка авторизации! Проверьте логин или пароль!");
      }
     }
     public function signout()

@@ -1,7 +1,9 @@
 <?php
 
+use Database\Seeders\Roles;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,6 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class'=>Roles::class]);
     }
 
     /**

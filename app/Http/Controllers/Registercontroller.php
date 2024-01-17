@@ -18,10 +18,24 @@ class Registercontroller extends Controller
  "surname" => "alpha_dash|required|",
  "patronymic" => "alpha_dash|required",
  "email" => "required|unique:users|email",
+ "login" =>"required|unique:users|login",
  "phone" => "required|numeric",
  "password" => "required|min:6",
         ], [
-
+            "email.required" => "Поле обязательно для заполнения!",
+            "email.email" => "Введите корректный email",
+            "email.unique" => "Данный email уже занят",
+            "name.required" => "Поле обязательно для заполнения!",
+            "name.alpha_dash" => "Имя должно состоять только из букв!",
+            "name.regex" => "Только кириллица",
+            "surname.required" => "Поле обязательно для заполнения!",
+            "surname.alpha_dash" => "Фамилия должно состоять только из букв!",
+            "patronymic.required" => "Поле обязательно для заполнения!",
+            "patronymic.alpha_dash" => "Отчество должно состоять только из букв!",
+            "login.required" => "Поле обязательно для заполнения!",
+            "phone.required" => "Поле обязательно для заполнения!",
+            "phone.numeric" => "Номер только из цифр!",
+            "password.required" => "Поле обязательно для заполнения!",
         ]);
 
         $user=$request->all();
