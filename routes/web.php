@@ -20,7 +20,30 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Indexcontroller::class, 'index']);
 
-Route::get('/personalcab', [Indexcontroller::class, 'personalcab']);
+Route::middleware('user:гражданин')->group(
+    function () {
+
+        Route::get('/personalcab', [Indexcontroller::class, 'personalcab']);
+
+        Route::get('/application', [applicationController::class, 'application_view']);
+
+        Route::post('/{id}/apllication_create', [applicationController::class, 'apllication_create']);
+    }
+);
+
+Route::middleware('user:администратор')->group(
+    function () {
+
+        Route::get('/{id}/accepted', [applicationController::class, 'accepted']);
+
+        Route::get('/{id}/reject', [applicationController::class, 'reject']);
+
+
+
+        Route::get('/admin/index', [AdminController::class, 'index']);
+    }
+);
+
 
 Route::get('/signout', [Indexcontroller::class, 'signout']);
 
@@ -29,12 +52,6 @@ Route::get('registration', [Registercontroller::class,'registration_view']);
 Route::post('register_valid', [Registercontroller::class,'register_valid']);
 Route::post('auth_valid', [IndexController::class,'auth_valid']);
 
-Route::get('/application', [applicationController::class, 'application_view']);
 
-Route::get('/{id}/accepted', [applicationController::class, 'accepted']);
 
-Route::get('/{id}/reject', [applicationController::class, 'reject']);
 
-Route::post('/{id}/apllication_create', [applicationController::class,'apllication_create']);
-
-Route::get('/admin/index', [AdminController::class,'index']);

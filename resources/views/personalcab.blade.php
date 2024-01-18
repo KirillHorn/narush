@@ -1,5 +1,5 @@
 
-  
+
     <x-header/>
     <div class="container">
     <div>ДОБРО ПОЖАЛОВАТЬ В ЛИЧНЫЙ КАБИНЕТ</div>
@@ -16,12 +16,13 @@
         <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Машина: {{$applications->car}}</h5>
-    <p class="card-text"><span style="color:black;  ">Нарушение:</span> {{$applications->description}}</p>
+    <p class="card-text"><span style="color:black;  " class="fw-bold">Нарушение:</span> {{$applications->description}}</p>
+    <p class="card-text"><span style="color:black; font-weign:600;  " class="fw-bold">Статус: </span> {{ $applications->status_app->title }} </p>
 
   </div>
 </div>
 
-@endforeach 
+@endforeach
         </div>
     </div>
 </body>

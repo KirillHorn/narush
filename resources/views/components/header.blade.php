@@ -36,7 +36,7 @@
       <a href="/personalcab" class="btn btn-primary">Админ панель</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
       @endif
-      
+
       @endauth
     </div>
   </header>
