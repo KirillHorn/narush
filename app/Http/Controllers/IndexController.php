@@ -14,10 +14,17 @@ class IndexController extends Controller
     public function index() {
         return view("index");
     }
-    public function personalcab() {
+    public function personalcab(Request $request) {
       $id=Auth::user()->id;
-      $application=Applications::where('id_user', $id)->get();
-        return view("personalcab", ['application' => $application]);
+      if (!isset($request->sort)) 
+      $sort = "asc";
+   else 
+   $sort="desc";
+ 
+         $application=Applications::where('id_user', $id)->orderBy("created_at", $sort)->paginate(2);
+     
+ 
+        return view("personalcab", compact('application'));
     }
 
     public function auth_valid(Request $request)

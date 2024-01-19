@@ -20,5 +20,6 @@
 </div>
 
 @endforeach 
+{{ $application->withQueryString()->links('pagination::bootstrap-5') }}
 
 </div>

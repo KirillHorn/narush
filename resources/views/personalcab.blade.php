@@ -11,7 +11,11 @@
       <span>{{Auth::user()->email}}</span>
     </div>
         <div>
-
+<div> 
+  <h1>Сортировка по новизне</h1>
+  <a href="/personalcab?sort=desc">От новых к старым<a>
+  <a href="/personalcab?">От старых к новым<a>
+</div>
         @foreach ($application as $applications)
         <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -23,7 +27,12 @@
 </div>
 
 @endforeach
+</div>
+              {{ $application->withQueryString()->links('pagination::bootstrap-5') }}
+                </div>
         </div>
+
+        
     </div>
 </body>
 </html>

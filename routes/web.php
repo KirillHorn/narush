@@ -20,10 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Indexcontroller::class, 'index']);
 
-Route::middleware('user:гражданин')->group(
+Route::middleware('user:Гражданин')->group(
     function () {
 
         Route::get('/personalcab', [Indexcontroller::class, 'personalcab']);
+
+        Route::get('/personalcab
+        .', [Indexcontroller::class, 'personalcab']);
 
         Route::get('/application', [applicationController::class, 'application_view']);
 
@@ -31,7 +34,7 @@ Route::middleware('user:гражданин')->group(
     }
 );
 
-Route::middleware('user:администратор')->group(
+Route::middleware('user:Администратор')->group(
     function () {
 
         Route::get('/{id}/accepted', [applicationController::class, 'accepted']);

@@ -30,7 +30,7 @@
       @auth
       @if (Auth::user()->role == 1)
  
-      <a href="/personalcab" class="btn btn-primary">Личный кабинет</a>
+      <a href="/personalcab/" class="btn btn-primary">Личный кабинет</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
       @else
       <a href="/personalcab" class="btn btn-primary">Админ панель</a>

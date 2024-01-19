@@ -8,7 +8,7 @@ use App\Models\Applications;
 class AdminController extends Controller
 {
     public function index() {
-        $application=Applications::all();
-        return view('admin.index',['application' => $application]);
+        $application=Applications::paginate(2);
+        return view('admin.index',compact('application'));
     }
 }
