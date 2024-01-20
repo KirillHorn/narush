@@ -13,13 +13,14 @@ class Registercontroller extends Controller
         return view("registration");
     }
     public function register_valid(Request $request) {
+     
         $request->validate([
  "name" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
  "surname" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
  "patronymic" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u",
  "email" => "required|unique:users|email",
  "login" =>"required|unique:users",
- "phone" => "required|numeric",
+ "phone" => "required|regex:/\+7\([0-9][0-9][0-9]\)[0-9]{3}(\-)[0-9]{2}(\-)[0-9]{2}$/",
  "password" => "required|min:6",
         ], [
             "email.required" => "Поле обязательно для заполнения!",
@@ -37,6 +38,7 @@ class Registercontroller extends Controller
             "login.required" => "Поле обязательно для заполнения!",
             "phone.required" => "Поле обязательно для заполнения!",
             "phone.numeric" => "Номер только из цифр!",
+            "phone.regex" => "Неправильный формат номера",
             "password.required" => "Поле обязательно для заполнения!",
         ]);
 

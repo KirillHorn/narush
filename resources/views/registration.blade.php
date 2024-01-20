@@ -37,12 +37,12 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Телефон</label>
-          <input type="phone" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="phone" name="phone" class="form-control phone" id="tel" aria-describedby="emailHelp">
           <p>@error('phone') {{$message}}  @enderror</p>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Пароль</label>
-          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" name="password" class="form-control" id="exampleInputEmail1">
           <p>@error('password') {{$message}}  @enderror</p>
         </div>
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
@@ -50,5 +50,8 @@
 
 
     </div>
+    <script>
+ $(".phone").mask("+7(999)999-99-99");
+    </script>
 </body>
 </html>

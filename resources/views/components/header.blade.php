@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -24,7 +26,7 @@
 
     <div class="col-md-3 text-end flex">
         @guest
-      <button type="button" class="btn btn-outline-primary me-2">Вход</button>
+        <a href="/" class="btn btn-primary">Вход</a>
       <a href="/registration" class="btn btn-primary">Регистрация</a>
       @endguest
       @auth
@@ -33,7 +35,7 @@
       <a href="/personalcab/" class="btn btn-primary">Личный кабинет</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
       @else
-      <a href="/personalcab" class="btn btn-primary">Админ панель</a>
+      <a href="/admin/index" class="btn btn-primary">Админ панель</a>
       <a href="/signout" class="btn btn-primary">Выход</a>
       @endif
 

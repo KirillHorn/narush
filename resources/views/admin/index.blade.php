@@ -1,6 +1,7 @@
 <x-header/>
 
 <div class="container">
+<div class="d-flex flex-wrap" style="gap: 20px;">
 @foreach ($application as $applications)
 <div class="card" style="width: 18rem;">
 
@@ -17,9 +18,11 @@
     <p class="card-text">Статус: {{$applications->status_app->title}} </p>
     @endif
   </div>
+  
 </div>
 
 @endforeach 
+</div>
 {{ $application->withQueryString()->links('pagination::bootstrap-5') }}
 
 </div>

@@ -2,7 +2,7 @@
 
     <x-header/>
     <div class="container">
-    <div>ДОБРО ПОЖАЛОВАТЬ В ЛИЧНЫЙ КАБИНЕТ</div>
+    <h2>ДОБРО ПОЖАЛОВАТЬ В ЛИЧНЫЙ КАБИНЕТ</h2>
     <div>
       <span>{{Auth::user()->name}}</span>
       <span>{{Auth::user()->surname}}</span>
@@ -12,12 +12,13 @@
     </div>
         <div>
 <div> 
-  <h1>Сортировка по новизне</h1>
+  <h2>Сортировка по новизне</h2>
   <a href="/personalcab?sort=desc">От новых к старым<a>
   <a href="/personalcab?">От старых к новым<a>
 </div>
+ <div class="d-flex flex-wrap" style="gap: 20px;  margin-top:20px;" >
         @foreach ($application as $applications)
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; ">
   <div class="card-body">
     <h5 class="card-title">Машина: {{$applications->car}}</h5>
     <p class="card-text"><span style="color:black;  " class="fw-bold">Нарушение:</span> {{$applications->description}}</p>
@@ -27,6 +28,7 @@
 </div>
 
 @endforeach
+</div>
 </div>
               {{ $application->withQueryString()->links('pagination::bootstrap-5') }}
                 </div>
