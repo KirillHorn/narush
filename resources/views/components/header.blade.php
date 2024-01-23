@@ -18,10 +18,12 @@
       </a>
     </div>
     @auth
+    @if (Auth::user()->role == 1)
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a href="/application" class="nav-link px-2 link-secondary">Подать заявку</a></li>
       <li><a href="#" class="nav-link px-2">Мои заявки</a></li>
     </ul>
+    @endif
     @endauth
 
     <div class="col-md-3 text-end flex">
